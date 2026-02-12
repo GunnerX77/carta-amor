@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Árbol de Amor Animado</title>
+    <!-- Autoría y derechos -->
+    <meta name="author" content="Gunner">
+    <meta name="copyright" content="Gunner">
+    <meta name="description" content="Una sorpresa dedicada para la niña que llena mi vida de alegría.">
+    <meta name="keywords" content="amor, sorpresa, romántico, dedicatoria, animación, árbol, corazones, pareja, aniversario, regalo digital">
+    <meta name="robots" content="index, follow">
+    <!-- Estilos -->
+    <link rel="stylesheet" href="Css/style.css">
+    <link rel="stylesheet" href="Css/style.mobile.css" media="only screen and (max-width: 600px)">
+    <style>
+      .tree-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 400px;
+        height: 400px;
+        z-index: 2;
+      }
+      .animated-heart {
+    transform-origin: center;
+        animation: beat 1s infinite;
+      }
+      @keyframes beat {
+        0%, 100% { transform: scale(1); }
+        20% { transform: scale(1.1); }
+        40% { transform: scale(0.95); }
+        60% { transform: scale(1.08); }
+        80% { transform: scale(1); }
+      }
+      
+      /* Estilos para la pantalla de pregunta inicial */
+      #question-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: linear-gradient(135deg, #ffeef8 0%, #ffe0ec 100%);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        transition: opacity 0.8s ease, transform 0.8s ease;
+      }
+      
+      #question-screen.hidden {
+        opacity: 0;
+        transform: scale(0.95);
+        pointer-events: none;
+      }
+      
+      .question-text {
+        font-family: 'Georgia', serif;
+        font-size: 3rem;
+        color: #e60026;
+        text-align: center;
+        margin-bottom: 3rem;
+        text-shadow: 2px 2px 4px rgba(230, 0, 38, 0.2);
+        animation: fadeInDown 1s ease;
+      }
+      
+      @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      .buttons-container {
+        display: flex;
+        gap: 2rem;
+        animation: fadeInUp 1s ease 0.3s both;
+      }
+      
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      .valentine-btn {
+        padding: 1.2rem 3rem;
+        font-size: 1.5rem;
+        font-family: 'Arial', sans-serif;
+        font-weight: bold;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+      
+      #yes-btn {
+        background: linear-gradient(135deg, #e60026 0%, #ff4466 100%);
+        color: white;
+      }
+      
+      #yes-btn:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 20px rgba(230, 0, 38, 0.4);
+      }
+      
+      #no-btn {
+        background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+        color: #666;
+        position: relative;
+      }
+      
+      #no-btn:hover {
+        background: linear-gradient(135deg, #f8f8f8 0%, #e8e8e8 100%);
+      }
+      
+      /* Responsive para móviles */
+      @media (max-width: 600px) {
+        .question-text {
+          font-size: 2rem;
+          padding: 0 1rem;
+        }
+        
+        .buttons-container {
+          flex-direction: column;
+          gap: 1.5rem;
+        }
+        
+        .valentine-btn {
+          padding: 1rem 2.5rem;
+          font-size: 1.2rem;
+        }
+      }
+    </style>
+</head>
+<body>
+    <!-- Pantalla de pregunta inicial -->
+    <div id="question-screen">
+      <h1 class="question-text">Quieres ser mi valentín?????</h1>
+      <div class="buttons-container">
+        <button id="yes-btn" class="valentine-btn">Siii</button>
+        <button id="no-btn" class="valentine-btn">Nooooo</button>
+      </div>
+    </div>
+    
+    <!-- Contenido original -->
+    <div id="floating-objects"></div>
+    <div class="dedication-text" id="dedication-text">
+      <div class="signature" id="signature"></div>
+    </div>
+    <div class="countdown" id="countdown"></div>
+    <div class="tree-container" id="tree-container"></div>
+    <audio src="Music/soñe.mp3" id="bg-music" preload="auto"></audio>
+    <script src="Js/script.js"></script>
+</body>
+</html>
